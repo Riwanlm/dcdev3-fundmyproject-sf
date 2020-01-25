@@ -9,23 +9,8 @@
         <p>Aidez-nous à créer de nouveaux projets chaque jour !</p>
         <div class="row">
             {% for project in projects %}
-                <article class="col-4">
-                    <div class="card">
-                        <img src="{{ asset(project.imageOrPlaceholder) }}" class="card-img-top" alt="{{ project.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ project.name }}</h5>
-                            <ul class="badges">
-                                {% for category in project.categories %}
-                                    <li><a href="category.html" class="badge badge-pill badge-primary">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                            <p class="card-text">{{ project.excerpt }}</p>
-                            <a href="project.html" class="btn btn-primary">
-                                <i class="fa fa-eye"></i>
-                                Voir plus
-                            </a>
-                        </div>
-                    </div>
+                <article class="col-4"> {# J'ai volontairement laissé cette balise ici pour pouvoir choisir le nombre de colonnes de chaque thumbnail sur d'autres pages #}
+                    {% include 'project/_thumbnail.html.twig' with {'project': project} only %}
                 </article>
             {% endfor %}
         </div>
