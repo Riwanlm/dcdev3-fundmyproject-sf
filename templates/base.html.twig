@@ -31,10 +31,17 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">
-                            <i class="fa fa-sign-in"></i>
-                            Me connecter
-                        </a>
+                        {% if app.user %}
+                            <a class="nav-link" href="{{ path('app_logout') }}">
+                                <i class="fa fa-sign-out"></i>
+                                Déconnexion
+                            </a>
+                        {% else %}
+                            <a class="nav-link" href="{{ path('app_login') }}">
+                                <i class="fa fa-sign-in"></i>
+                                Me connecter
+                            </a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
