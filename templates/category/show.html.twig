@@ -6,8 +6,8 @@
 
     <div class="container">
         <h1>Catégorie : {{ category.name }}</h1>
-        {# TODO: Afficher dynamiquement le nombre de projets de la catégorie en cours #}
-        <p>Il y a 3 projets dans cette catégorie :</p>
+
+        <p>Il y a {{ category.projects|length }} dans cette catégorie :</p>
         <div class="row">
             {% for project in category.projects %}
                 <article class="col-4">
