@@ -38,7 +38,17 @@
                 </button>
             </div>
         </form>
-        {# TODO: Afficher la liste des contributions #}
+        {# Afficher la liste des contributions = fait #}
+        <section class="list-group">
+            {% for contribution in project.contributions %}
+                <article class="list-group-item">
+                    <blocquote class="blockquote">
+                        <p>{{ contribution.amount }} €</p>
+                        <footer class="blockquote-footer">{{ contribution.user.fullname }}</footer>
+                    </blocquote>
+                </article>
+            {% endfor %}
+        </section>
     </div>
 
 {% endblock %}
